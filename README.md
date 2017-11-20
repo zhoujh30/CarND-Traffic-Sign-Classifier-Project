@@ -3,11 +3,11 @@
 
 Overview
 ---
-In this project, I will use what I've learned about deep neural networks and convolutional neural networks to classify traffic signs. I will train and validate a model so it can classify traffic sign images using the [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset). After the model is trained, I will then try out my model on images of German traffic signs that I find on the web.
+In this project, I will use what I've learned about deep neural networks and convolutional neural networks to classify traffic signs. I will train and validate a model so it can classify traffic sign images using the [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset). After the model is trained, I will try out my model on images of German traffic signs found on the web.
 
 The Project
 ---
-The goals / steps of this project are the following:
+The goals/steps of this project:
 * Load the data set 
 * Explore, summarize and visualize the data set
 * Design, train and test a model architecture
@@ -18,9 +18,9 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./images/visualization.jpg "Visualization"
-[image2]: ./images/grayscale.jpg "Grayscaling"
-[image3]: ./images/random_noise.jpg "Random Noise"
+[image1]: ./Images/Visualization.jpg "Visualization"
+[image2]: ./Images/grayscale.jpg "Grayscaling"
+[image3]: ./Images/random_noise.jpg "Random Noise"
 [image4]: ./New_German_Traffic_Signs/01_Speed_limit_30.jpg "Traffic Sign 1"
 [image5]: ./New_German_Traffic_Signs/13_Yield.jpg "Traffic Sign 2"
 [image6]: ./New_German_Traffic_Signs/14_Stop.jpg "Traffic Sign 3"
@@ -51,43 +51,35 @@ signs data set:
 
 The bar chart below shows the data distribution of the training set. The height of each bar represents the number of training sets for each class of traffic sign images. Here is the metadata for traffic sign names: [signnames.csv](./signnames.csv)
 
-![alt text][image1]
+![Visualization][image1]
 
 ### Design, Train, and Test a Model Architecture
 
-1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. 
+#### Preprocess the image
 
-As a first step, I decided to convert the images to grayscale because ...
+I converted the images to grayscale because color is not a significant factor that will influence the classification and in this way the same number of training set also should make training faster. I then normalized/standardized the image data because it can make training faster and reduce the chances of getting stuck in local optima.
 
-Here is an example of a traffic sign image before and after grayscaling.
+Here is an comparison of a traffic sign image before and after preprocessing.
 
-![alt text][image2]
+![before preprocess][image2]  ![after preprocess][image3]
 
-As a last step, I normalized the image data because ...
 
-I decided to generate additional data because ... 
+#### Build model architecture
 
-To add more data to the the data set, I used the following techniques because ... 
-
-![alt text][image2]
-
-####2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
-
-My final model consisted of the following layers:
-
-| Layer         		|     Description	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Input         		| 32x32x3 RGB image   							| 
-| Convolution 3x3     	| 1x1 stride, same padding, outputs 32x32x64 	|
-| RELU					|												|
-| Max pooling	      	| 2x2 stride,  outputs 16x16x64 				|
-| Convolution 3x3	    | etc.      									|
-| Fully connected		| etc.        									|
-| Softmax				| etc.        									|
-|						|												|
-|						|												|
+The model used to claasify traffic signs is a convolutional neuronal network based on [LeNet](http://yann.lecun.com/exdb/publis/pdf/lecun-98.pdf) architecture. Here is a summary of the final model by layers:
  
-
+| Layer         		|     Description	        					| Input Shape|Output Shape| 
+|:---------------------:|:---------------------------------------------:| :----:|:-----:|
+| Convolution 5x5     	| 1x1 stride, valid padding, RELU activation 	|32x32x1|28x28x48|
+| Max Pooling			| 2x2 stride, 2x2 window						|28x28x48|14x14x48|
+| Convolution 5x5 	    | 1x1 stride, valid padding, RELU activation 	|14x14x48|10x10x96|
+| Max Pooling			| 2x2 stride, 2x2 window	   					|10x10x96|5x5x96|
+| Convolution 3x3 		| 1x1 stride, valid padding, RELU activation    |5x5x96|3x3x172|
+| Max Pooling			| 1x1 stride, 2x2 window        				|3x3x172|2x2x172|
+| Flatten				| resize the input from 3 dimensions to 1 dimension	|2x2x172| 688|
+| Fully Connected | Connecting the layer, RELU activation|688|120|
+| Fully Connected | Connecting the layer, RELU activation|120|84|
+| Fully Connected | Connecting the layer, output 43 classes	|84|43|
 
 ####3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
