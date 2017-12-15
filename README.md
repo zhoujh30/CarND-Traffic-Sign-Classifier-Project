@@ -1,4 +1,4 @@
-## Project: Build a Traffic Sign Recognition Program
+## Building a Traffic Sign Classifier
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
 Overview
@@ -19,8 +19,8 @@ The goals/steps of this project:
 [//]: # (Image References)
 
 [image1]: ./Images/Visualization.jpg "Visualization"
-[image2]: ./Images/grayscale.jpg "Grayscaling"
-[image3]: ./Images/random_noise.jpg "Random Noise"
+[image2]: ./Images/beforePreprocess.jpg "before Preprocess"
+[image3]: ./Images/afterPreprocess.jpg "after Preprocess"
 [image4]: ./New_German_Traffic_Signs/01_Speed_limit_30.jpg "Traffic Sign 1"
 [image5]: ./New_German_Traffic_Signs/13_Yield.jpg "Traffic Sign 2"
 [image6]: ./New_German_Traffic_Signs/14_Stop.jpg "Traffic Sign 3"
@@ -49,7 +49,7 @@ signs data set:
 * The shape of a traffic sign image is (32, 32, 3)
 * The number of unique classes/labels in the data set is 43
 
-The bar chart below shows the data distribution of the training set. The height of each bar represents the number of training sets for each class of traffic sign images. Here is the metadata for traffic sign names: [signnames.csv](./signnames.csv)
+The bar chart below shows the data distribution of the training set. The x axis represents each class ID of traffic sign images and the y axis represents the number of training sets. Here is the metadata for traffic sign names: [signnames.csv](./signnames.csv)
 
 ![Visualization][image1]
 
@@ -85,12 +85,17 @@ The model used to claasify traffic signs is a convolutional neuronal network bas
 
 To train the model, I used an ....
 
+My training parameters:
+* EPOCHS = 40
+* BATCH_SIZE = 128
+* SIGMA = 0.1
+* OPIMIZER: AdamOptimizer (learning rate = 0.0008)
+
 ####4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
-My final model results were:
-* training set accuracy of ?
-* validation set accuracy of ? 
-* test set accuracy of ?
+My model results were:
+* Validation set accuracy: 0.961
+* Test set accuracy of: 0.941
 
 If an iterative approach was chosen:
 * What was the first architecture that was tried and why was it chosen?
