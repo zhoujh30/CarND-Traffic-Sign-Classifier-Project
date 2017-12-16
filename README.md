@@ -19,16 +19,16 @@ The goals/steps of this project:
 [//]: # (Image References)
 
 [image1]: ./Images/Visualization.jpg "Visualization"
-[image2]: ./Images/BeforePreprocess.jpg "Before Preprocess"
-[image3]: ./Images/AfterPreprocess.jpg "After Preprocess"
+[image2]: ./Images/beforePreprocess.jpg "Before Preprocess"
+[image3]: ./Images/afterPreprocess.jpg "After Preprocess"
 [image4]: ./Images/New_Signs.jpg "New Signs"
-[image5]: ./New_German_Traffic_Signs/01_Speed_limit_30.jpg "Traffic Sign 1"
-[image6]: ./New_German_Traffic_Signs/13_Yield.jpg "Traffic Sign 2"
-[image7]: ./New_German_Traffic_Signs/14_Stop.jpg "Traffic Sign 3"
-[image8]: ./New_German_Traffic_Signs/17_No_entry.jpg "Traffic Sign 4"
-[image9]: ./New_German_Traffic_Signs/22_Bumpy_road.jpg "Traffic Sign 5"
-[image10]: ./New_German_Traffic_Signs/25_Road_work.jpg "Traffic Sign 6"
-[image11]: ./New_German_Traffic_Signs/28_Children_crossing.jpg "Traffic Sign 7"
+[image5]: ./Images/01_Speed_limit_30.jpg "Traffic Sign 1"
+[image6]: ./Images/13_Yield.jpg "Traffic Sign 2"
+[image7]: ./Images/14_Stop.jpg "Traffic Sign 3"
+[image8]: ./Images/17_No_entry.jpg "Traffic Sign 4"
+[image9]: ./Images/22_Bumpy_road.jpg "Traffic Sign 5"
+[image10]: ./Images/25_Road_work.jpg "Traffic Sign 6"
+[image11]: ./Images/28_Children_crossing.jpg "Traffic Sign 7"
 
 
 ### Project Code
@@ -104,39 +104,59 @@ I started training the model built based on the LeNet-5 implementation shown in 
 
 ![alt text][image4]  
 
-The first image might be difficult to classify because ...
+The "Bumpy Road", "Road Work", and "Children Crossing" signs should be more difficult to classify since they have more complicated shapes. The rest of the four signs should be easier to classify.
 
-####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
+#### 2. Use the model to predict new signs 
 
 Here are the results of the prediction:
 
 | Image			        |     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| Stop Sign      		| Stop sign   									| 
-| U-turn     			| U-turn 										|
-| Yield					| Yield											|
-| 100 km/h	      		| Bumpy Road					 				|
-| Slippery Road			| Slippery Road      							|
+| Bumpy Road      		| Bicycles Crossing   							| 
+| Speed Limit (30km/h) 	| Speed Limit (30km/h) 							|
+| Stop					| Stop											|
+| Road Work	      		| Road Work				    	 				|
+| No Entry  			| No Entry      			    				|
+| Children Crossing  	| Beware of ice/snow      						|
+| Yield     			| Yield      				        			|
 
 
-The model was able to correctly guess 5 of the 7 traffic signs, which gives an accuracy of 71.4%. This compares favorably to the accuracy on the test set of ...
+The model was able to correctly guess 5 of the 7 traffic signs, which gives an accuracy of 71.4%. This is much lower compared to the test set accuracy (94.1%). To improve the prediction result on new traffic signs, we can:
+* further improve the model
+* increase the sample size of new images (collect a lot more new signs) for comparison
 
-####3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
+#### 3. Explore top 5 softmax probabilities for each image 
 
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
+##### Bumpy Road
+
+![alt text][image9]
 
 For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
 
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
 
+##### Speed Limit (30km/h)
 
-For the second image ... 
+![alt text][image5]
+
+##### Stop
+
+![alt text][image7]
+
+##### Road Work
+
+![alt text][image10]
+
+##### No Entry
+
+![alt text][image8]
+
+##### Children Crossing
+
+![alt text][image11]
+
+##### Yield
+
+![alt text][image6]
 
 
 
