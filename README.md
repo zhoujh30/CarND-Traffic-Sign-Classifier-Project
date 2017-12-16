@@ -35,9 +35,11 @@ The goals/steps of this project:
 
 Here is a link to [Traffic_Sign_Classifier.ipynb](https://github.com/zhoujh30/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
 
+
 ### Load the data set
 
 Here is a link to the [data set](https://d17h27t6h515a5.cloudfront.net/topher/2017/February/5898cd6f_traffic-signs-data/traffic-signs-data.zip) used for training.
+
 
 ### Explore, Summarize and Visualize the Data Set
 
@@ -54,7 +56,9 @@ The bar chart below shows the data distribution of the training set. The x axis 
 
 ![Visualization][image1]
 
+
 ### Design, Train, and Test a Model Architecture
+
 
 #### Preprocess the image
 
@@ -82,6 +86,7 @@ The model used to claasify traffic signs is a convolutional neuronal network bas
 | Fully Connected | Connecting the layer, RELU activation|120|84|
 | Fully Connected | Connecting the layer, output 43 classes	|84|43|
 
+
 #### Train and test model
 
 I used Amazon Web Services to launch an EC2 GPU instance (g2.2xlarge) to train the model. 
@@ -100,13 +105,15 @@ I started training the model built based on the LeNet-5 implementation shown in 
 
 ### Test a Model on New Images
 
+
 #### Collect new traffic signs from web
 
 ![alt text][image4]  
 
 The "Bumpy Road", "Road Work", and "Children Crossing" signs should be more difficult to classify since they have more complicated shapes. The rest of the four signs should be easier to classify.
 
-#### 2. Use the model to predict new signs 
+
+#### Use the model to predict new signs 
 
 Here are the results of the prediction:
 
@@ -121,18 +128,14 @@ Here are the results of the prediction:
 | Yield     			| Yield      				        			|
 
 
-The model was able to correctly guess 5 of the 7 traffic signs, which gives an accuracy of 71.4%. This is much lower compared to the test set accuracy (94.1%). To improve the prediction result on new traffic signs, we can:
-* further improve the model
-* increase the sample size of new images (collect a lot more new signs) for comparison
+The model was able to correctly guess 5 of the 7 traffic signs, which gives an accuracy of 71.4%. This is much lower compared to the test set accuracy (94.1%). To improve the prediction result on new traffic signs, we can definitely further improve the model. But to have a meaningful comparison, we may also want to largely increase the sample size of new images.
 
-#### 3. Explore top 5 softmax probabilities for each image 
+
+#### Explore top 5 softmax probabilities for each image 
 
 ##### Bumpy Road
 
 ![alt text][image9]
-
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
-
 
 ##### Speed Limit (30km/h)
 
